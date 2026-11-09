@@ -1,0 +1,20 @@
+{
+  "description": "云知天气 · 微信原生小程序（稳定 JSON / 面试演示版本）",
+  "miniprogramRoot": "./",
+  "appid": "touristappid",
+  "projectname": "weather-json",
+  "compileType": "miniprogram",
+  "libVersion": "3.5.0",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "coverView": true,
+    "showShadowRootInWxmlPanel": true,
+    "packNpmManually": false,
+    "packNpmRelationList": []
+  },
+  "condition": {}
+}

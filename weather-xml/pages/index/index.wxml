@@ -1,0 +1,138 @@
+<!-- pages/index/index.wxml · 云知天气首页 -->
+<view class="page">
+
+  <!-- ============ 顶部渐变区：标题 + 搜索 + 快捷城市 ============ -->
+  <view class="hero">
+    <view class="hero-head">
+      <view>
+        <text class="app-title">云知天气</text>
+        <text class="app-sub">WEATHER · 微信小程序课程作业</text>
+      </view>
+      <text class="hero-icon">☀</text>
+    </view>
+
+    <view class="search-bar">
+      <text class="search-icon">⌕</text>
+      <input
+        class="search-input"
+        type="text"
+        value="{{cityInput}}"
+        placeholder="输入城市名称，如：昆明"
+        placeholder-class="search-placeholder"
+        confirm-type="search"
+        bindinput="onInput"
+        bindconfirm="onSearch"
+      />
+      <view class="search-btn" bindtap="onSearch">查询</view>
+    </view>
+
+    <view class="quick-row">
+      <text class="quick-label">快捷</text>
+      <view
+        class="quick-chip {{cityInput === item ? 'quick-chip-on' : ''}}"
+        wx:for="{{quickCities}}"
+        wx:key="*this"
+        data-city="{{item}}"
+        bindtap="onQuickTap"
+      >{{item}}</view>
+    </view>
+
+    <!-- 数据源开关：在线接口（答辩演示网络请求） / 演示报文（截图用） -->
+    <view class="mode-row">
+      <view class="mode-item {{mode === 'live' ? 'mode-on' : ''}}" data-mode="live" bindtap="onModeChange">在线接口</view>
+      <view class="mode-item {{mode === 'demo' ? 'mode-on' : ''}}" data-mode="demo" bindtap="onModeChange">演示报文</view>
+    </view>
+  </view>
+
+  <view class="content">
+
+    <!-- ============ 加载 / 空状态 ============ -->
+    <view wx:if="{{loading}}" class="state-card">
+      <text class="state-emoji">⏳</text>
+      <text class="state-text">正在请求 WebService 并解析 XML 报文…</text>
+    </view>
+
+    <block wx:elif="{{weather}}">
+      <!-- ============ ① 当前天气主卡片 ============ -->
+      <view class="card main-card">
+        <view class="card-head">
+          <view class="city-block">
+            <text class="city-name">{{weather.city}}</text>
+            <text wx:if="{{weather.province}}" class="province-name">{{weather.province}}</text>
+          </view>
+          <text class="source-tag {{sourceClass}}">{{sourceText}}</text>
+        </view>
+
+        <view class="temp-row">
+          <text class="weather-emoji">{{weather.today.icon}}</text>
+          <view class="temp-block">
+            <text class="temp-num">{{weather.today.temp}}</text>
+            <text class="temp-unit">℃</text>
+          </view>
+          <view class="temp-side">
+            <text class="condition">{{weather.today.condition}}</text>
+            <text class="range">{{weather.today.tempRange}}</text>
+          </view>
+        </view>
+
+        <view class="meta-row">
+          <view class="meta-item">
+            <text class="meta-label">风向风力</text>
+            <text class="meta-value">{{weather.today.wind}}</text>
+          </view>
+          <view class="meta-item">
+            <text class="meta-label">相对湿度</text>
+            <text class="meta-value">{{weather.today.humidity}}</text>
+          </view>
+          <view class="meta-item">
+            <text class="meta-label">更新时间</text>
+            <text class="meta-value">{{weather.updateTime}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- ============ ② 未来三天预报 ============ -->
+      <view class="section-title">未来三天预报</view>
+      <view class="card forecast-card">
+        <view class="forecast-row" wx:for="{{weather.forecast}}" wx:key="label">
+          <text class="f-label">{{item.label}}</text>
+          <text class="f-emoji">{{item.icon}}</text>
+          <text class="f-cond">{{item.condition}}</text>
+          <text class="f-range">{{item.tempRange}}</text>
+          <text class="f-wind">{{item.wind}}</text>
+        </view>
+      </view>
+
+      <!-- ============ ③ 实况与生活指数 ============ -->
+      <view class="card info-card">
+        <view class="info-title">今日实况</view>
+        <text class="info-text">{{weather.live}}</text>
+        <view class="divider"></view>
+        <view class="info-title">生活指数</view>
+        <text class="info-text multi">{{weather.lifeIndex}}</text>
+        <view wx:if="{{weather.intro}}" class="divider"></view>
+        <block wx:if="{{weather.intro}}">
+          <view class="info-title">城市简介</view>
+          <text class="info-text">{{weather.intro}}</text>
+        </block>
+      </view>
+
+      <!-- ============ ④ 原始 XML 报文（可展开，作业证明用） ============ -->
+      <view class="card xml-card" bindtap="toggleXml">
+        <view class="xml-head">
+          <text class="xml-title">&lt;/&gt; 原始 XML 报文</text>
+          <text class="xml-toggle">{{showXml ? '收起 ▲' : '展开查看 ▼'}}</text>
+        </view>
+        <text wx:if="{{showXml}}" class="xml-code" selectable="true" space="nbsp">{{rawXml}}</text>
+        <text wx:else class="xml-hint">点击展开，可看到服务端返回的完整 ArrayOfString 报文</text>
+      </view>
+    </block>
+
+    <view wx:else class="state-card">
+      <text class="state-emoji">🌤️</text>
+      <text class="state-text">输入城市名称，开始查询天气</text>
+    </view>
+
+    <view class="footer">手写 XML Parser · 零第三方依赖 · 微信原生小程序</view>
+  </view>
+</view>

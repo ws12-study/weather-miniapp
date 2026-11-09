@@ -1,0 +1,17 @@
+# WorkBuddy 工作区内部数据（记忆、配置），不要提交到 GitHub
+.workbuddy/
+
+# 微信开发者工具的本地私有配置
+project.private.config.json
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 依赖与构建产物
+node_modules/
+miniprogram_npm/
+dist/
+*.log

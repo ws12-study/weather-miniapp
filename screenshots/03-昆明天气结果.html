@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>截图 ③ · 昆明天气查询结果</title>
+<link rel="stylesheet" href="common.css">
+</head>
+<body>
+
+  <div class="shot-head">
+    <span class="shot-kicker">截图 ③ / 3</span>
+    <div class="shot-title">昆明天气查询结果</div>
+    <div class="shot-desc">默认城市昆明 · 温度 / 天气状况 / 风向风力 / 未来三天预报</div>
+  </div>
+
+  <div class="phone" style="height: 820px;">
+    <div class="screen">
+      <div class="statusbar"><span>9:41</span><span class="sb-icons">●●● ⌁ ▮</span></div>
+      <div class="navbar">云知天气<span class="capsule">··· &nbsp; ◉</span></div>
+
+      <div class="hero">
+        <div class="hero-head">
+          <div>
+            <span class="app-title">云知天气</span>
+            <span class="app-sub">WEATHER · 微信小程序课程作业</span>
+          </div>
+          <span class="hero-icon">☀</span>
+        </div>
+        <div class="search-bar">
+          <span class="search-icon">⌕</span>
+          <span class="search-input">昆明</span>
+          <span class="search-btn">查询</span>
+        </div>
+        <div class="quick-row">
+          <span class="quick-label">快捷</span>
+          <span class="quick-chip on">昆明</span>
+          <span class="quick-chip">北京</span>
+          <span class="quick-chip">上海</span>
+          <span class="quick-chip">广州</span>
+        </div>
+        <div class="mode-row">
+          <span class="mode-item">在线接口</span>
+          <span class="mode-item on">演示报文</span>
+        </div>
+      </div>
+
+      <div class="content">
+
+        <!-- 当前天气主卡 -->
+        <div class="card">
+          <div class="card-head">
+            <div><span class="city-name">昆明</span><span class="province-name">云南</span></div>
+            <span class="source-tag tag-demo">演示报文（离线）</span>
+          </div>
+          <div class="temp-row">
+            <span class="weather-emoji">⛅</span>
+            <div class="temp-block"><span class="temp-num">15</span><span class="temp-unit">℃</span></div>
+            <div class="temp-side">
+              <span class="condition">多云转晴</span>
+              <span class="range">8℃/17℃</span>
+            </div>
+          </div>
+          <div class="meta-row">
+            <div class="meta-item"><span class="meta-label">风向风力</span><span class="meta-value">西南风 3级</span></div>
+            <div class="meta-item"><span class="meta-label">相对湿度</span><span class="meta-value">62%</span></div>
+            <div class="meta-item"><span class="meta-label">更新时间</span><span class="meta-value">2026-11-9 13:00:00</span></div>
+          </div>
+        </div>
+
+        <!-- 未来三天预报 -->
+        <div class="section-title">未来三天预报</div>
+        <div class="card forecast-card">
+          <div class="forecast-row">
+            <span class="f-label">今天</span><span class="f-emoji">⛅</span>
+            <span class="f-cond">多云转晴</span><span class="f-range">8℃/17℃</span>
+          </div>
+          <div class="forecast-row">
+            <span class="f-label">明天</span><span class="f-emoji">☀️</span>
+            <span class="f-cond">晴</span><span class="f-range">7℃/16℃</span>
+          </div>
+          <div class="forecast-row">
+            <span class="f-label">后天</span><span class="f-emoji">⛅</span>
+            <span class="f-cond">多云</span><span class="f-range">9℃/18℃</span>
+          </div>
+        </div>
+
+        <!-- 实况 / 生活指数 -->
+        <div class="card">
+          <div class="info-title">今日实况</div>
+          <span class="info-text">今日天气实况：气温：15℃；风向/风力：西南风 3级；湿度：62%；空气质量：优；紫外线强度：中等</span>
+          <div class="divider"></div>
+          <div class="info-title">生活指数</div>
+          <span class="info-text">穿衣指数：昼夜温差较大，建议着薄外套或牛仔衫裤，早晚注意添衣。
+感冒指数：天凉空气干燥，较易发生感冒，请注意适当防护、多饮水。
+运动指数：天气较好，紫外线中等，非常适宜户外运动与徒步。</span>
+          <div class="divider"></div>
+          <div class="info-title">城市简介</div>
+          <span class="info-text">昆明，别称「春城」，云南省省会，地处云贵高原中部，海拔约 1890 米，四季如春、气候温和，是著名的旅游与避暑城市。</span>
+        </div>
+
+        <!-- 原始 XML -->
+        <div class="card xml-card">
+          <div class="xml-head">
+            <span class="xml-title">&lt;/&gt; 原始 XML 报文</span>
+            <span class="xml-toggle">展开查看 ▼</span>
+          </div>
+          <span class="xml-hint">点击展开，可看到服务端返回的完整 ArrayOfString 报文</span>
+        </div>
+
+        <div class="footer">手写 XML Parser · 零第三方依赖 · 微信原生小程序</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="shot-foot">
+    截图建议：输入框保持「昆明」，点「查询」或「演示报文」，等主卡片与「未来三天预报」全部渲染后再截；<br>
+    模拟器缩放调 100%、浅色主题，卡片阴影与蓝色渐变更清晰。<br>
+    若报告需要证明「真的收到了 XML」，展开底部「原始 XML 报文」再补一张，可看到 23 个 <code>&lt;string&gt;</code> 节点。
+  </div>
+
+</body>
+</html>

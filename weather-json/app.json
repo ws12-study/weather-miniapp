@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#3f6fe8",
+    "navigationBarTitleText": "云知天气",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f2f5fa"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

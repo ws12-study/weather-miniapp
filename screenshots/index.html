@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>云知天气 · 三张截图参考图</title>
+<link rel="stylesheet" href="common.css">
+<style>
+  body { padding-top: 34px; }
+  .top-links { margin-top: 10px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .top-links a {
+    font-size: 12px; text-decoration: none; color: #3f6fe8;
+    background: #fff; border: 1px solid #d7e2f7; border-radius: 18px; padding: 6px 14px;
+  }
+  .top-links a:hover { background: #e8f0ff; }
+</style>
+</head>
+<body>
+
+  <div class="shot-head">
+    <span class="shot-kicker">课程作业 · 截图参考</span>
+    <div class="shot-title">云知天气 · 三张截图参考图</div>
+    <div class="shot-desc">下面是高保真排版示意，可直接对浏览器截屏；交作业更推荐用微信开发者工具截真实界面</div>
+    <div class="top-links">
+      <a href="01-XML关键代码.html" target="_blank">单独打开 ①</a>
+      <a href="02-小程序运行界面.html" target="_blank">单独打开 ②</a>
+      <a href="03-昆明天气结果.html" target="_blank">单独打开 ③</a>
+    </div>
+  </div>
+
+  <div class="gallery">
+    <div class="gallery-grid">
+
+      <div class="gallery-item">
+        <h3>① 获取 XML 天气数据的关键 JS 代码 <small>weather-xml/pages/index/index.js</small></h3>
+        <iframe src="01-XML关键代码.html" title="关键 JS 代码截图"></iframe>
+      </div>
+
+      <div class="gallery-item tall">
+        <h3>② 小程序页面执行界面 <small>微信开发者工具 · 模拟器 + Console</small></h3>
+        <iframe src="02-小程序运行界面.html" title="小程序运行界面截图"></iframe>
+      </div>
+
+      <div class="gallery-item tall">
+        <h3>③ 昆明天气查询结果 <small>温度 / 天气状况 / 风向风力 / 未来三天预报</small></h3>
+        <iframe src="03-昆明天气结果.html" title="昆明天气结果截图"></iframe>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="shot-foot">
+    真实截图操作、接口局限性与切换 JSON 版本的说明，见项目根目录 <code>README.md</code> 与 <code>docs/</code> 下两份文档。<br>
+    两个工程分别是 <code>weather-xml/</code> 与 <code>weather-json/</code>，可用微信开发者工具分别导入。
+  </div>
+
+</body>
+</html>

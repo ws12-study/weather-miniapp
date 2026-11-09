@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>截图 ② · 小程序页面执行界面</title>
+<link rel="stylesheet" href="common.css">
+</head>
+<body>
+
+  <div class="shot-head">
+    <span class="shot-kicker">截图 ② / 3</span>
+    <div class="shot-title">小程序页面执行界面</div>
+    <div class="shot-desc">微信开发者工具 · 模拟器 + 调试器 Console · 程序正在发起请求</div>
+  </div>
+
+  <div class="window devtools" style="width: 1000px;">
+    <div class="win-bar">
+      <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+      <span class="win-title">微信开发者工具 — 云知天气（weather-xml）</span>
+      <span class="win-right">编译完成 · 模拟器 iPhone 15 · 100%</span>
+    </div>
+
+    <div class="dev-toolbar">
+      <span class="tab-active">模拟器</span><span>编辑器</span><span>调试器</span>
+      <span style="margin-left:auto; color:#a3aec0;">普通编译 &nbsp;·&nbsp; 不校验合法域名 ✓</span>
+    </div>
+
+    <div class="dev-body">
+
+      <!-- 左侧文件树 -->
+      <div class="dev-side">
+        <div class="tree-h">WEATHER-XML</div>
+        <div class="tree-i">▾ pages</div>
+        <div class="tree-i">&nbsp;&nbsp;▾ index</div>
+        <div class="tree-i active">&nbsp;&nbsp;&nbsp;&nbsp;index.js</div>
+        <div class="tree-i">&nbsp;&nbsp;&nbsp;&nbsp;index.wxml</div>
+        <div class="tree-i">&nbsp;&nbsp;&nbsp;&nbsp;index.wxss</div>
+        <div class="tree-i">&nbsp;&nbsp;&nbsp;&nbsp;index.json</div>
+        <div class="tree-i">▾ utils</div>
+        <div class="tree-i">&nbsp;&nbsp;xml-parser.js</div>
+        <div class="tree-i">&nbsp;&nbsp;mock-data.js</div>
+        <div class="tree-i">app.js</div>
+        <div class="tree-i">app.json</div>
+      </div>
+
+      <!-- 手机模拟器 -->
+      <div class="dev-phone-wrap">
+        <div class="phone">
+          <div class="screen">
+            <div class="statusbar"><span>9:41</span><span class="sb-icons">●●● ⌁ ▮</span></div>
+            <div class="navbar">云知天气<span class="capsule">··· &nbsp; ◉</span></div>
+
+            <div class="hero">
+              <div class="hero-head">
+                <div>
+                  <span class="app-title">云知天气</span>
+                  <span class="app-sub">WEATHER · 微信小程序课程作业</span>
+                </div>
+                <span class="hero-icon">☀</span>
+              </div>
+              <div class="search-bar">
+                <span class="search-icon">⌕</span>
+                <span class="search-input">昆明</span>
+                <span class="search-btn">查询</span>
+              </div>
+              <div class="quick-row">
+                <span class="quick-label">快捷</span>
+                <span class="quick-chip on">昆明</span>
+                <span class="quick-chip">北京</span>
+                <span class="quick-chip">上海</span>
+                <span class="quick-chip">广州</span>
+              </div>
+              <div class="mode-row">
+                <span class="mode-item on">在线接口</span>
+                <span class="mode-item">演示报文</span>
+              </div>
+            </div>
+
+            <div class="content">
+              <div class="state-card">
+                <span class="state-emoji">⏳</span>
+                <span class="state-text">正在请求 WebService 并解析 XML 报文…</span>
+              </div>
+              <div class="card xml-card">
+                <div class="xml-head">
+                  <span class="xml-title">&lt;/&gt; 原始 XML 报文</span>
+                  <span class="xml-toggle">展开查看 ▼</span>
+                </div>
+                <span class="xml-hint">点击展开，可看到服务端返回的完整 ArrayOfString 报文</span>
+              </div>
+              <div class="footer">手写 XML Parser · 零第三方依赖 · 微信原生小程序</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 调试器 -->
+      <div class="console">
+        <div class="c-h">CONSOLE</div>
+        <div class="c-log">[云知天气] 小程序启动 · WebService / XML 版本</div>
+        <div class="c-req">▶ GET https://www.webxml.com.cn/.../getWeatherbyCityName?theCityName=%E6%98%86%E6%98%8E</div>
+        <div class="c-log">&nbsp;&nbsp;dataType: 'text' &nbsp; responseType: 'text'</div>
+        <div class="c-warn">[天气接口不可用，已切换演示报文] 接口返回 HTTP 500</div>
+        <div class="c-key">[收到原始 XML 报文]</div>
+        <div class="c-log">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div>
+        <div class="c-log">&lt;ArrayOfString xmlns="http://WebXml.com.cn/"&gt;</div>
+        <div class="c-log">&nbsp;&nbsp;&lt;string&gt;云南&lt;/string&gt;</div>
+        <div class="c-log">&nbsp;&nbsp;&lt;string&gt;昆明&lt;/string&gt;</div>
+        <div class="c-log">&nbsp;&nbsp;… 共 23 个 &lt;string&gt; 节点</div>
+        <div class="c-req">✔ parseWeatherXml() → setData() 渲染完成</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="shot-foot">
+    截图建议：保留「微信开发者工具」窗口外框与左侧文件树，能同时证明工程结构规范；<br>
+    右侧 Console 里的 <code>GET ...</code> 与 <code>&lt;ArrayOfString&gt;</code> 能证明「网络请求真的发出、XML 报文真的收到」。<br>
+    实际操作时建议先点「在线接口」，在请求发出的瞬间截屏；若接口已挂，程序会自动回退并弹出提示。
+  </div>
+
+</body>
+</html>

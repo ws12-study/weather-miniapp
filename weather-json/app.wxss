@@ -1,0 +1,9 @@
+/* app.wxss · 全局样式（页面级样式写在 pages/index/index.wxss） */
+page {
+  box-sizing: border-box;
+  background: #f2f5fa;
+}
+
+view, text, input {
+  box-sizing: border-box;
+}
